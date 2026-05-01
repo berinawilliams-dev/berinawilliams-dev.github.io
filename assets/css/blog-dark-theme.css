@@ -1,0 +1,14 @@
+/* blog-dark-theme.css */
+
+/* Portal specific link colors and hover effects - OVERRIDDEN FOR BLOG */
+.portal-link {
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+.portal-link:hover {
+  color: #F05A22; /* Vibrant orange */
+  text-decoration: underline;
+}
+.dark .portal-link:hover {
+  color: #FF7A45; /* Lighter orange */
+}

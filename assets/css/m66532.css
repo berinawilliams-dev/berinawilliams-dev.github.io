@@ -1,0 +1,139 @@
+/* Minimalist marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 105s linear infinite;
+}
+
+/* Prevent ALL horizontal overflow at root level */
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+  position: relative;
+}
+
+/* All sections and footer must never exceed viewport width */
+section,
+footer,
+nav {
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+/* Clip the marquee section so the wide inner row doesn't expand the page */
+.marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Mobile navbar — guaranteed styles independent of Tailwind build */
+#mobile-menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #171717;
+  padding: 4px;
+}
+html.dark #mobile-menu-btn {
+  color: #ffffff;
+}
+html.jupiter #mobile-menu-btn {
+  color: #f7fbf9;
+}
+@media (min-width: 768px) {
+  #mobile-menu-btn {
+    display: none;
+  }
+}
+
+#mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  gap: 1.5rem;
+  backdrop-filter: blur(20px);
+}
+html.dark #mobile-menu {
+  background: rgba(26, 26, 26, 0.97);
+  border-bottom-color: #2d2d2d;
+}
+html.jupiter #mobile-menu {
+  background: rgba(42, 69, 48, 0.97);
+  border-bottom-color: rgba(224, 241, 231, 0.18);
+}
+#mobile-menu.is-open {
+  display: flex;
+}
+#mobile-menu a {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #525252;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+html.dark #mobile-menu a {
+  color: #d4d4d4;
+}
+html.jupiter #mobile-menu a {
+  color: rgba(224, 241, 231, 0.92);
+}
+#mobile-menu a:hover {
+  color: #10b981;
+}
+#mobile-menu .mobile-cta {
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem 1.25rem;
+  background: #171717;
+  color: #ffffff !important;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+html.dark #mobile-menu .mobile-cta {
+  background: rgba(255, 255, 255, 0.1);
+}
+html.jupiter #mobile-menu .mobile-cta {
+  background: rgba(54, 151, 81, 0.3);
+}
+#mobile-menu .mobile-cta:hover {
+  background: #262626;
+}
+html.dark #mobile-menu .mobile-cta:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+html.jupiter #mobile-menu .mobile-cta:hover {
+  background: rgba(54, 151, 81, 0.45);
+}
+
+#icon-close {
+  display: none;
+}
+#mobile-menu-btn.is-open #icon-close {
+  display: block;
+}
+#mobile-menu-btn.is-open #icon-menu {
+  display: none;
+}

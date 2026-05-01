@@ -1,0 +1,73 @@
+/* news-portal.css */
+
+/* Hide scrollbar for horizontal ribbons but keep functionality */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Image Zoom on hover for news cards */
+.news-card-img-container {
+  overflow: hidden;
+}
+.news-card-img-container img {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.news-card:hover .news-card-img-container img {
+  transform: scale(1.05);
+}
+
+/* Masonry layout using CSS columns for the infinite feed */
+.masonry-feed {
+  column-count: 1;
+  column-gap: 1rem;
+}
+@media (min-width: 640px) {
+  .masonry-feed {
+    column-count: 2;
+  }
+}
+@media (min-width: 1024px) {
+  .masonry-feed {
+    column-count: 3;
+  }
+}
+@media (min-width: 1280px) {
+  .masonry-feed {
+    column-count: 4;
+  }
+}
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+
+/* Portal specific link colors and hover effects */
+.portal-link {
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+.portal-link:hover {
+  color: #005a9e; /* Classic portal blue */
+  text-decoration: underline;
+}
+.dark .portal-link:hover {
+  color: #60a5fa; /* Lighter blue for dark mode */
+}
+
+/* Ensure smooth text clamping */
+.clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
